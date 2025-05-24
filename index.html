@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Food Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .food-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .food-section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .food-section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+        }
+
+        .section-title.thai::before {
+            content: '🍛';
+            background: none;
+            font-size: 24px;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title.dessert::before {
+            content: '🍰';
+            background: none;
+            font-size: 24px;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .food-description {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .food-description:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ff6b6b 0%, #feca57 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .food-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .food-tag {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .food-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+                padding-left: 35px;
+            }
+            
+            .food-description {
+                padding: 20px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Food Journey</h1>
+            <p>Exploring flavors that make life delicious</p>
+        </div>
+        
+        <div class="content">
+            <div class="food-section">
+                <h2 class="section-title thai">Thai Cuisine</h2>
+                <div class="food-description">
+                    I have a special love for <span class="highlight">Thai cuisine</span>, especially the bold and vibrant flavors that dance on your palate. My absolute favorite is <span class="highlight">spicy beef with rice</span> topped with a perfectly <span class="highlight">fried egg</span>. There's something magical about the combination of tender, spiced beef, fluffy jasmine rice, and that golden egg with its runny yolk mixing everything together into pure comfort.
+                    
+                    <div class="food-items">
+                        <span class="food-tag">🌶️ Spicy Beef</span>
+                        <span class="food-tag">🍚 Jasmine Rice</span>
+                        <span class="food-tag">🍳 Fried Egg</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-section">
+                <h2 class="section-title dessert">Sweet Indulgences</h2>
+                <div class="food-description">
+                    When it comes to desserts, I'm completely enchanted by <span class="highlight">all sorts of ice creams and cakes</span>. From rich, creamy gelato to light, airy sponge cakes, from decadent chocolate layer cakes to refreshing fruit sorbets – each sweet treat brings its own moment of joy and celebration to life.
+                    
+                    <div class="food-items">
+                        <span class="food-tag">🍦 Ice Creams</span>
+                        <span class="food-tag">🎂 Cakes</span>
+                        <span class="food-tag">🍨 Gelato</span>
+                        <span class="food-tag">🧁 Sweet Treats</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            ✨ Food is love made visible ✨
+        </div>
+    </div>
+</body>
+</html>
